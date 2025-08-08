@@ -1,0 +1,29 @@
+{
+  "name": "contropy",
+  "version": "0.0.0-VERSION",
+  "description": "CONstant enTROPY",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "bin": "./dist/cli/bin.js",
+  "exports": {
+    "./pi": "./dist/pi.js",
+    "./btc": "./dist/btc.js",
+    "./npm": "./dist/npm.js",
+    "./crate": "./dist/crate.js",
+    "./drand": "./dist/drand.js",
+    "./main": "./dist/cli/main.js",
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "./dist/**/*.d.ts",
+    "./dist/**/*.js"
+  ],
+  "devDependencies": {
+    "@std/encoding": "npm:@jsr/std__encoding@1",
+    "@types/node": "^20.9.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
