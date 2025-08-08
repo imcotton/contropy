@@ -12,12 +12,6 @@ import {
 
 
 
-const sanitizeOps = false; // https://github.com/denoland/deno/issues/20663
-
-
-
-
-
 c.describe('cli / main', function () {
 
     c.describe('helps', function () {
@@ -128,8 +122,6 @@ c.it_on_ci_and({
 
     name: 'cli > jsr',
 
-    sanitizeOps,
-
     async fn (t) {
 
         await t.step('return integrity in hex', async function () {
@@ -156,8 +148,6 @@ c.it_on_ci_and({
 c.test_on_ci({
 
     name: 'cli > npm',
-
-    sanitizeOps,
 
     async fn (t) {
 
@@ -200,8 +190,6 @@ c.test_on_ci({
 
     name: 'cli > crate',
 
-    sanitizeOps,
-
     async fn (t) {
 
         await t.step('return json or field individually', async function () {
@@ -242,8 +230,6 @@ c.test_on_ci({
 c.test_on_ci({
 
     name: 'cli > drand',
-
-    sanitizeOps,
 
     async fn (t) {
 
