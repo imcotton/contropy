@@ -1,0 +1,51 @@
+export const snapshot = {};
+
+snapshot[`btc > has height at 42 1`] = `
+{
+  hash: "00000000314e90489514c787d615cea50003af2023796ccdd085b6bcc1fa28f5",
+  height: "42",
+  nonce: "3600650283",
+  prev: "00000000ad2b48c7032b6d7d4f2e19e54d79b1c159f5599056492f2cd7bb528b",
+  root: "27c4d937dca276fb2b61e579902e8a876fd5b5abc17590410ced02d5a9f8e483",
+}
+`;
+
+snapshot[`btc > has height at 1024 1`] = `
+{
+  hash: "00000000edfa5bfffd21cc8ce76e46b79dc00196e61cdc62fd595316136f8a83",
+  height: "1024",
+  nonce: "366454553",
+  prev: "00000000e8817bc0ab40272591666f084b92130eee0e5172c04512dd6409fcb7",
+  root: "e4fec85d2803c115a10ed8276514ba76e769c1ca85a8c577b655fcdecc323ef1",
+}
+`;
+
+snapshot[`btc > has height at 65535 1`] = `
+{
+  hash: "00000000025721d88a4146328f86399f4c946e4ba7e99fb1fdcc1b9b5105d57b",
+  height: "65535",
+  nonce: "1295215224",
+  prev: "000000000849cd43d5292eb27699ed1a73c2cfeeb1d2ebd33514aaae5030b7d4",
+  root: "fbc79a34a92051847e2607d5004a41b4f21af0327d786598fc2099b6bd827ffc",
+}
+`;
+
+snapshot[`btc > has height at 314159 1`] = `
+{
+  hash: "00000000000000001bb82a7f5973618cfd3185ba1ded04dd852a653f92a27c45",
+  height: "314159",
+  nonce: "474785672",
+  prev: "00000000000000003021634037ebf164433fa819aac82d4dac8852e14a1a6952",
+  root: "85d96247cb71e427b250e01b2b0e55a404976f49bc557a5ab3dd2e585ff7af2c",
+}
+`;
+
+snapshot[`btc > has height at 831947 1`] = `
+{
+  hash: "000000000000000000017f64984bf7b42e044f8a81b3f29724c0dafbe153aa1c",
+  height: "831947",
+  nonce: "2424804614",
+  prev: "00000000000000000001584463e50b6aab55a8f861261670ba40fb5835f53326",
+  root: "c78aaaa95caa4057f10876492743a38f57774ba8488301aaecd75d72468870f6",
+}
+`;

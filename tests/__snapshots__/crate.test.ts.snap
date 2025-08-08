@@ -1,0 +1,41 @@
+export const snapshot = {};
+
+snapshot[`crate > has pkg rand@0.8.5 1`] = `
+{
+  checksum: "34af8d1a0e25924bc5b7c43c079c942339d8f0a8b57c39049bef581b46327404",
+  crate: "rand",
+  num: "0.8.5",
+}
+`;
+
+snapshot[`crate > has pkg libc@0.2.153 1`] = `
+{
+  checksum: "9c198f91728a82281a64e1f4f9eeb25d82cb32a5de251c6bd1b5154d63a8e7bd",
+  crate: "libc",
+  num: "0.2.153",
+}
+`;
+
+snapshot[`crate > has pkg hyper@1.2.0 1`] = `
+{
+  checksum: "186548d73ac615b32a73aafe38fb4f56c0d340e110e5a200bcadbaf2e199263a",
+  crate: "hyper",
+  num: "1.2.0",
+}
+`;
+
+snapshot[`crate > has pkg tokio@1.36.0 1`] = `
+{
+  checksum: "61285f6515fa018fb2d1e46eb21223fff441ee8db5d0f1435e8ab4f5cdb80931",
+  crate: "tokio",
+  num: "1.36.0",
+}
+`;
+
+snapshot[`crate > has pkg regex-syntax@0.8.2 1`] = `
+{
+  checksum: "c08c74e62047bb2de4ff487b251e4a92e24f48745648451635cec7d591162d9f",
+  crate: "regex-syntax",
+  num: "0.8.2",
+}
+`;

@@ -1,0 +1,52 @@
+export const snapshot = {};
+
+snapshot[`drand > has network default at round 42 1`] = `
+{
+  prev: "a418fccbfaa0c84aba8cbcd4e3c0555170eb2382dfed108ecfc6df249ad43efe00078bdcb5060fe2deed4731ca5b4c740069aaf77927ba59c5870ab3020352aca3853adfdb9162d40ec64f71b121285898e28cdf237e982ac5c4deb287b0d57b",
+  random: "a9f12c5869d05e084d1741957130e1d0bf78a8ca9a8deb97c47cac29aae433c6",
+  round: "42",
+  sign: "9469186f38e5acdac451940b1b22f737eb0de060b213f0326166c7882f2f82b92ce119bdabe385941ef46f72736a4b4d02ce206e1eb46cac53019caf870080fede024edcd1bd0225eb1335b83002ae1743393e83180e47d9948ab8ba7568dd99",
+}
+`;
+
+snapshot[`drand > has network default at round 1024 1`] = `
+{
+  prev: "a612041dc17df64ec84719b5da748ab8a04a93d4202317bcaf120aaf52396595d1f9bdf13336eaede43d21f2b77d2b1a01f0459dff519317f5eebf77585e751128049f3e1a40af8e76aaab3b6405348f6e7549e16ef7e65e0f979d7c16ba6fe7",
+  random: "f3e7f9a7d9e3cafe9147c0ec5c6b522dc18bba3412347ba1191dd4e9f0b5a487",
+  round: "1024",
+  sign: "8eb51956d18a1cf3ce144d1213e429f40272cc1170685604b4c6a90cb346b3f22178cbbac26d23e21f2bd5b8e91c256f06216c6cd08a604e47169b9660be89b741c08a6cff6ffd6ded8d11044ac1dd207d5c37cf164fc14c08ac9d0e95fdcd36",
+}
+`;
+
+snapshot[`drand > has network default at round 65535 1`] = `
+{
+  prev: "ada0d40922fce1f1e89a3e20d03b5d89c08093c43aaf0987ea27f4e191a28a8314039d4af362d5c1a9864eaa7b83fb280d66af9d332fb472fb4cd333f9f6170039636dfa2e5c621f1606e275fffe445971f524daa16a38b4707dd0a965089858",
+  random: "0bf9a43c0d78884f5c80dbffca2e4b1464670034c657835891ef99d117e9a7bd",
+  round: "65535",
+  sign: "b185d1b53adcd279d29d3ecdd6b59a8cc7f14daa5b132be39e77b9ec5584823d3b2d7f60e5c42ca9a1da69f71ba853bd1609653ef9d2c491f318dff2ea23619b98317d2bf347f61edfe0b4548a9cbf40834da4c97eddd44483262a86f4667d6d",
+}
+`;
+
+snapshot[`drand > has network quicknet at round 42 1`] = `
+{
+  random: "8ada64bae5c6c0f5540a6a13af56e663240edfbd2c76ac6a8f27671eb7259ce3",
+  round: "42",
+  sign: "95a9f9f5b231b7714de1553105d8ffdf3dcda24cfdb1e689319bccf79a9c8ce430a91b811fbfaf763900bc998b5d686a",
+}
+`;
+
+snapshot[`drand > has network quicknet at round 1024 1`] = `
+{
+  random: "61974ef95039c92fe3c20b0cc458a3d769f40c61a4c13f337474cc7a09ceec1c",
+  round: "1024",
+  sign: "a3e642addbaa7c522c458f4cdb51d404708f839004fa8e6170317bce1e50afd5e797f8d8bc624a1c79707d93ae456cb9",
+}
+`;
+
+snapshot[`drand > has network quicknet at round 65535 1`] = `
+{
+  random: "4a9741b8eb1bfa9109198bcdfe5b30b6bfff7c38b396e64873eb4df9b5b32604",
+  round: "65535",
+  sign: "95aa0afea5aa88f59fe34facebcb08770ac01d38840a8c16e841c6027a293a3c90dbcaf010a8fb19b306b9ff6c46eaf9",
+}
+`;

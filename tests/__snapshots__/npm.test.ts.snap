@@ -1,0 +1,73 @@
+export const snapshot = {};
+
+snapshot[`npm > has pkg npm@10.4.0 1`] = `
+{
+  name: "npm",
+  sha512: "452eccc743957d794e7102d178fb8321874509504f08d6a9587a650cafa687b18374ffd3be8af8a1cbb26d144f4af7dc45bdaf8d126dd5f1c2ab0ddcafca8009",
+  shasum: "904025b4d932cfaed8799e644a1c5ae7f02729fc",
+  version: "10.4.0",
+}
+`;
+
+snapshot[`npm > has pkg npm@9.9.2 1`] = `
+{
+  name: "npm",
+  sha512: "0f7b55f96d0fcc93a5c28f1898ee9f373681d42acc55877557ed9351117a95b09b9992aa32c6207907cf56faa2337cdb35224f8451279a5117228807d95abb3d",
+  shasum: "28133f81643bce36c1c8bcb57b51e1ee53583df7",
+  version: "9.9.2",
+}
+`;
+
+snapshot[`npm > has pkg typescript@5.3.3 1`] = `
+{
+  name: "typescript",
+  sha512: "a5759cadac4cd2ec404beb4dd001bf045d93caa9873b4d78674ef452c27ea45bd8b914aaf0a1fc0e65a99db5ded2910f0c75d957715c01b2648a3279a0d1275b",
+  shasum: "b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37",
+  version: "5.3.3",
+}
+`;
+
+snapshot[`npm > has pkg typescript@5.2.2 1`] = `
+{
+  name: "typescript",
+  sha512: "988e16ae91ec6c221cc13f5c178159bebf3441478abec52c52f283a11f97ffb5c7407f7cc580fc607660ec036dcf61ad66dfc206ad90274b6190624c1dfa9cd7",
+  shasum: "5ebb5e5a5b75f085f22bc3f8460fba308310fa78",
+  version: "5.2.2",
+}
+`;
+
+snapshot[`npm > has pkg rollup@4.12.0 1`] = `
+{
+  name: "rollup",
+  sha512: "c33ebac27e2dd4e1c8270dfe5d4ee6249415ff63407f0e4e024e86e87a28df372fcff5ce7d0e765608be00de14c68c62d0a041c24da0f333eb4c30386ed481fd",
+  shasum: "0b6d1e5f3d46bbcf244deec41a7421dc54cc45b5",
+  version: "4.12.0",
+}
+`;
+
+snapshot[`npm > has pkg rollup@3.29.4 1`] = `
+{
+  name: "rollup",
+  sha512: "a16ce6059c2f62b5348891ed0e686c9baeb6ac2d791515e67230a4d710fbef57450f1e63274dae7c04104e7d1eb41d9e98d93827d11983fc962a9b27f4158647",
+  shasum: "4d70c0f9834146df8705bfb69a9a19c9e1109981",
+  version: "3.29.4",
+}
+`;
+
+snapshot[`npm > has pkg @types/node@20.11.20 1`] = `
+{
+  name: "@types/node",
+  sha512: "effad1db5392f9fabc2321d382d2e40caf78f6ecec6ba9fc064ce200ab4f569ba02243ba0fefe8a1732fcd7c439d9ae6b5755f8dbd5b29069f6296fcb3cf4b3a",
+  shasum: "f0a2aee575215149a62784210ad88b3a34843659",
+  version: "20.11.20",
+}
+`;
+
+snapshot[`npm > has pkg @types/node@18.11.9 1`] = `
+{
+  name: "@types/node",
+  sha512: "091a57db5fe419dce33a916c65291cad730620158c18d2075d70551521fe82091fb7183e5d83f6d131126e1fb316f163dc440e9796f29341d3467d482fa85baa",
+  shasum: "02d013de7058cea16d36168ef2fc653464cfbad4",
+  version: "18.11.9",
+}
+`;
