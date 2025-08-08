@@ -1,0 +1,75 @@
+name: Publish to npm
+
+
+
+on:
+  push:
+    tags:
+      - v/*
+
+
+
+jobs:
+
+  publish-npm:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+
+      - name: Setup repo
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: v24
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install
+        run: |-
+          npm install --no-{fund,package-lock}
+          npm install --no-{fund,package-lock,save} typescript@5.9.2 esbuild@0.25.8
+
+      - name: Build
+        run: npx tsc ./src/*.*s ./src/cli/*.*s
+                --outDir ./dist
+                --target es2022
+                --module es2022
+                --moduleResolution bundler
+                --strict
+                --allowJs
+                --declaration
+                --isolatedModules
+                --erasableSyntaxOnly
+                --rewriteRelativeImportExtensions
+
+      - name: Bundle
+        run: npx esbuild  ./dist/utils.js
+                --outfile=./dist/utils.js
+                --format=esm
+                --allow-overwrite
+                --bundle
+
+      - name: Replace
+        run: |-
+
+          VER=$(jq -r '.version' deno.json)
+          perl -i -pe "s/0.0.0-VERSION/$VER/" ./package.json
+
+          find ./dist -type f -name '*.js'   -exec perl -i -pe 's/^var /const /g' {} \;
+          find ./dist -type f -name '*.d.ts' -exec perl -i -pe "s/\.ts';/.js';/g" {} \;
+
+      - name: Publish (latest)
+        if: contains(github.ref_name, '-') == false
+        run: npm publish --access=public --tag=latest
+
+      - name: Publish (next)
+        if: contains(github.ref_name, '-') == true
+        run: npm publish --access=public --tag=next
+

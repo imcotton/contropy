@@ -1,0 +1,40 @@
+name: Check
+
+
+
+on: push
+
+
+
+permissions:
+  contents: read
+  id-token: write
+
+
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+
+      - name: Setup repo
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup deno
+        uses: denoland/setup-deno@e95548e56dfa95d4e1a28d6f422fafe75c4c26fb # v2.0.3
+        with:
+          deno-version: v2
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run tests
+        run: |-
+          CI=1 deno task test --coverage --coverage-raw-data-only --parallel --quiet
+          deno coverage --include=src --lcov --output=coverage/cov.lcov
+          deno coverage --include=src
+
