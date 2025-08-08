@@ -1,0 +1,66 @@
+{
+  "$schema": "https://raw.esm.sh/gh/denoland/deno@v2.4.2/cli/schemas/config-file.v1.json",
+  "name": "@imcotton/contropy",
+  "version": "0.7.0",
+  "description": "CONstant enTROPY",
+  "license": "MIT",
+  "imports": {
+    "@std/assert":     "jsr:@std/assert@1",
+    "@std/encoding": "jsr:@std/encoding@1",
+    "@std/fs":             "jsr:@std/fs@1",
+    "@std/testing":   "jsr:@std/testing@1"
+  },
+  "tasks": {
+    "test": "deno test ./tests -N -R=./tests -W=./tests -E=CI"
+  },
+  "exports": {
+    "./pi": "./src/pi.js",
+    "./btc": "./src/btc.ts",
+    "./npm": "./src/npm.ts",
+    "./crate": "./src/crate.ts",
+    "./drand": "./src/drand.ts",
+    "./main": "./src/cli/main.ts",
+    ".": "./src/mod.ts"
+  },
+  "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "lib": [
+      "DOM",
+      "ES2022",
+      "deno.window"
+    ]
+  },
+  "publish": {
+    "include": [
+      "deno.json",
+      "LICENSE.txt",
+      "README.md",
+      "./tests",
+      "./src"
+    ],
+    "exclude": [
+      "./tests/__snapshots__/"
+    ]
+  },
+  "lock": false,
+  "lint": {
+    "include": [ "src/" ],
+    "rules": {
+      "tags": [ "recommended" ],
+      "include": [
+        "no-const-assign",
+        "no-non-null-assertion",
+        "no-non-null-asserted-optional-chain"
+      ]
+    }
+  },
+  "fmt": {
+    "useTabs": false,
+    "indentWidth": 4,
+    "lineWidth": 80,
+    "semiColons": true,
+    "singleQuote": true
+  }
+}
