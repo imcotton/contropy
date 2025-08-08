@@ -124,6 +124,35 @@ c.describe('cli / main', function () {
 
 
 
+c.it_on_ci_and({
+
+    name: 'cli > jsr',
+
+    sanitizeOps,
+
+    async fn (t) {
+
+        await t.step('return integrity in hex', async function () {
+
+            const cmd = 'jsr';
+            const pkg = '@key/gen-ssh-ed25519';
+            const ver = '0.8.0';
+            const hash = '5a987acc4a67454c046c32b98a2accb073c1dd85e2f1e6c0e6fb2b18a5b3eac7';
+
+            const res = await main_async([ cmd, pkg, ver ]) ;
+
+            c.ast.assertStrictEquals(res, hash);
+
+        });
+
+    },
+
+});
+
+
+
+
+
 c.test_on_ci({
 
     name: 'cli > npm',
