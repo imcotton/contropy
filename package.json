@@ -6,6 +6,10 @@
   "type": "module",
   "sideEffects": false,
   "bin": "./dist/cli/bin.js",
+  "repository": {
+    "url": "https://github.com/imcotton/contropy.git",
+    "type": "git"
+  },
   "exports": {
     "./pi": "./dist/pi.js",
     "./btc": "./dist/btc.js",
