@@ -12,12 +12,6 @@ import {
 
 
 
-const sanitizeOps = false; // https://github.com/denoland/deno/issues/20663
-
-
-
-
-
 c.describe('cli / main', function () {
 
     c.describe('helps', function () {
@@ -124,28 +118,20 @@ c.describe('cli / main', function () {
 
 
 
-c.it_on_ci_and({
+c.it_on_ci_and('cli > jsr', async function (t) {
 
-    name: 'cli > jsr',
+    await t.step('return integrity in hex', async function () {
 
-    sanitizeOps,
+        const cmd = 'jsr';
+        const pkg = '@key/gen-ssh-ed25519';
+        const ver = '0.8.0';
+        const hash = '5a987acc4a67454c046c32b98a2accb073c1dd85e2f1e6c0e6fb2b18a5b3eac7';
 
-    async fn (t) {
+        const res = await main_async([ cmd, pkg, ver ]) ;
 
-        await t.step('return integrity in hex', async function () {
+        c.ast.assertStrictEquals(res, hash);
 
-            const cmd = 'jsr';
-            const pkg = '@key/gen-ssh-ed25519';
-            const ver = '0.8.0';
-            const hash = '5a987acc4a67454c046c32b98a2accb073c1dd85e2f1e6c0e6fb2b18a5b3eac7';
-
-            const res = await main_async([ cmd, pkg, ver ]) ;
-
-            c.ast.assertStrictEquals(res, hash);
-
-        });
-
-    },
+    });
 
 });
 
@@ -153,42 +139,34 @@ c.it_on_ci_and({
 
 
 
-c.test_on_ci({
+c.test_on_ci('cli > npm', async function (t) {
 
-    name: 'cli > npm',
+    await t.step('return json or field individually', async function () {
 
-    sanitizeOps,
+        const cmd = 'npm';
+        const pkg = 'rollup';
+        const ver = '4.12.0';
+        const shasum = '0b6d1e5f3d46bbcf244deec41a7421dc54cc45b5';
 
-    async fn (t) {
+        const [ json, value ] = await Promise.all([
 
-        await t.step('return json or field individually', async function () {
+            main_async([ cmd, pkg, ver,          ]),
 
-            const cmd = 'npm';
-            const pkg = 'rollup';
-            const ver = '4.12.0';
-            const shasum = '0b6d1e5f3d46bbcf244deec41a7421dc54cc45b5';
+            main_async([ cmd, pkg, ver, 'shasum' ]),
 
-            const [ json, value ] = await Promise.all([
+            c.ast.assertRejects(
+                () => main_async([ cmd, pkg, ver, 'waaaaaat' ]),
+                Error,
+                'invalid key: waaaaaat',
+            ),
 
-                main_async([ cmd, pkg, ver,          ]),
+        ]);
 
-                main_async([ cmd, pkg, ver, 'shasum' ]),
+        c.ast.assertStrictEquals(value, shasum);
 
-                c.ast.assertRejects(
-                    () => main_async([ cmd, pkg, ver, 'waaaaaat' ]),
-                    Error,
-                    'invalid key: waaaaaat',
-                ),
+        c.ast.assertObjectMatch(JSON.parse(json), { shasum });
 
-            ]);
-
-            c.ast.assertStrictEquals(value, shasum);
-
-            c.ast.assertObjectMatch(JSON.parse(json), { shasum });
-
-        });
-
-    },
+    });
 
 });
 
@@ -196,42 +174,34 @@ c.test_on_ci({
 
 
 
-c.test_on_ci({
+c.test_on_ci('cli > crate', async function (t) {
 
-    name: 'cli > crate',
+    await t.step('return json or field individually', async function () {
 
-    sanitizeOps,
+        const cmd = 'crate';
+        const pkg = 'hyper';
+        const ver = '1.2.0';
+        const checksum = `186548d73ac615b32a73aafe38fb4f56c0d340e110e5a200bcadbaf2e199263a`;
 
-    async fn (t) {
+        const [ json, value ] = await Promise.all([
 
-        await t.step('return json or field individually', async function () {
+            main_async([ cmd, pkg, ver,          ]),
 
-            const cmd = 'crate';
-            const pkg = 'hyper';
-            const ver = '1.2.0';
-            const checksum = `186548d73ac615b32a73aafe38fb4f56c0d340e110e5a200bcadbaf2e199263a`;
+            main_async([ cmd, pkg, ver, 'checksum' ]),
 
-            const [ json, value ] = await Promise.all([
+            c.ast.assertRejects(
+                () => main_async([ cmd, pkg, ver, 'waaaaaat' ]),
+                Error,
+                'invalid key: waaaaaat',
+            ),
 
-                main_async([ cmd, pkg, ver,          ]),
+        ]);
 
-                main_async([ cmd, pkg, ver, 'checksum' ]),
+        c.ast.assertStrictEquals(value, checksum);
 
-                c.ast.assertRejects(
-                    () => main_async([ cmd, pkg, ver, 'waaaaaat' ]),
-                    Error,
-                    'invalid key: waaaaaat',
-                ),
+        c.ast.assertObjectMatch(JSON.parse(json), { checksum });
 
-            ]);
-
-            c.ast.assertStrictEquals(value, checksum);
-
-            c.ast.assertObjectMatch(JSON.parse(json), { checksum });
-
-        });
-
-    },
+    });
 
 });
 
@@ -239,46 +209,38 @@ c.test_on_ci({
 
 
 
-c.test_on_ci({
+c.test_on_ci('cli > drand', async function (t) {
 
-    name: 'cli > drand',
+    await t.step('return json or field individually', async function () {
 
-    sanitizeOps,
+        const cmd = 'drand';
+        const network = 'quicknet';
+        const round = '16240013';
+        const random = `b43c7985c814f21f939d0b5e73430c5d608e4c8dd782a35ae87fa382a4669aa1`;
 
-    async fn (t) {
+        const [ latest, json, value ] = await Promise.all([
 
-        await t.step('return json or field individually', async function () {
+            main_async([ cmd, network                  ]),
 
-            const cmd = 'drand';
-            const network = 'quicknet';
-            const round = '16240013';
-            const random = `b43c7985c814f21f939d0b5e73430c5d608e4c8dd782a35ae87fa382a4669aa1`;
+            main_async([ cmd, network, round,          ]),
 
-            const [ latest, json, value ] = await Promise.all([
+            main_async([ cmd, network, round, 'random' ]),
 
-                main_async([ cmd, network                  ]),
+            c.ast.assertRejects(
+                () => main_async([ cmd, 'testnet', round ]),
+                Error,
+                'unknown drand network',
+            ),
 
-                main_async([ cmd, network, round,          ]),
+        ]);
 
-                main_async([ cmd, network, round, 'random' ]),
+        c.ast.assertStrictEquals(value, random);
 
-                c.ast.assertRejects(
-                    () => main_async([ cmd, 'testnet', round ]),
-                    Error,
-                    'unknown drand network',
-                ),
+        c.ast.assertObjectMatch(JSON.parse(json), { random });
 
-            ]);
+        c.ast.assertExists(JSON.parse(latest)['round']);
 
-            c.ast.assertStrictEquals(value, random);
-
-            c.ast.assertObjectMatch(JSON.parse(json), { random });
-
-            c.ast.assertExists(JSON.parse(latest)['round']);
-
-        });
-
-    },
+    });
 
 });
 
