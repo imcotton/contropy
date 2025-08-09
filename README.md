@@ -15,6 +15,7 @@ CONstant enTROPY
 | :---   | :---                         |
 | pi     | offline, compute on-the-fly  |
 | btc    | `https://mempool.space`      |
+| jsr    | `https://jsr.io`             |
 | npm    | `https://registry.npmjs.org` |
 | crate  | `https://crates.io`          |
 | drand  | `https://api.drand.sh`       |
