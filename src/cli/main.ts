@@ -9,8 +9,8 @@ import {
 
 
 type  Commands = typeof commands[number];
-const commands = [ 'pi', 'btc', 'crate', 'npm', 'cnpm', 'drand' ] as const;
-const            [  PI ,  BTC ,  CRATE ,  NPM ,  CNPM ,  DRAND  ] = commands;
+const commands = [ 'pi', 'btc', 'crate', 'jsr', 'npm', 'cnpm', 'drand' ] as const;
+const            [  PI ,  BTC ,  CRATE ,  JSR ,  NPM ,  CNPM ,  DRAND  ] = commands;
 
 
 
@@ -72,6 +72,14 @@ export async function main (
             return print(pick(res, trd) ?? to_json(res));
         }
 
+        if (cmd === JSR) {
+
+            const res = await mod.jsr(fst, snd);
+
+            return print(res);
+
+        }
+
         if (cmd === NPM || cmd === CNPM) {
 
             const res = await (cmd === CNPM
@@ -109,6 +117,8 @@ contropy
        pi [digits] [offsite]
 
       btc [height]                 { hash, nonce, prev, root }
+
+      jsr <pkg> <ver>
 
       npm <pkg> <ver>              { shasum, sha512? }
      cnpm <pkg> <ver>              { shasum, sha512? }

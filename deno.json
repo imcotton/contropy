@@ -16,6 +16,7 @@
   "exports": {
     "./pi": "./src/pi.js",
     "./btc": "./src/btc.ts",
+    "./jsr": "./src/jsr.ts",
     "./npm": "./src/npm.ts",
     "./crate": "./src/crate.ts",
     "./drand": "./src/drand.ts",

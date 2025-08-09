@@ -13,6 +13,7 @@
   "exports": {
     "./pi": "./dist/pi.js",
     "./btc": "./dist/btc.js",
+    "./jsr": "./dist/jsr.js",
     "./npm": "./dist/npm.js",
     "./crate": "./dist/crate.js",
     "./drand": "./dist/drand.js",
