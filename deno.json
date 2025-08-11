@@ -21,6 +21,7 @@
     "./crate": "./src/crate.ts",
     "./drand": "./src/drand.ts",
     "./main": "./src/cli/main.ts",
+    "./mix": "./src/mix/index.ts",
     ".": "./src/mod.ts"
   },
   "compilerOptions": {

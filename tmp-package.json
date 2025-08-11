@@ -18,6 +18,7 @@
     "./crate": "./dist/crate.js",
     "./drand": "./dist/drand.js",
     "./main": "./dist/cli/main.js",
+    "./mix": "./dist/mix/index.js",
     ".": "./dist/index.js"
   },
   "files": [
