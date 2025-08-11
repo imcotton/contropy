@@ -1,0 +1,43 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "extends": [
+    "@tsconfig/node20/tsconfig.json",
+    "@tsconfig/strictest/tsconfig.json",
+  ],
+  "exclude": [
+    "./tests",
+    "./dist",
+  ],
+  "include": [
+    "./src",
+  ],
+  "compilerOptions": {
+
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "module": "es2022",
+    "target": "es2023",
+
+    "lib": [
+      "DOM",
+      "ES2023",
+    ],
+
+    "types": [
+      "node",
+    ],
+
+    "allowJs": true,
+    "sourceMap": false,
+    "declaration": true,
+    "declarationMap": false,
+    "erasableSyntaxOnly": true,
+    "moduleDetection": "force",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "noUncheckedSideEffectImports": true,
+    "rewriteRelativeImportExtensions": true,
+
+  }
+}
