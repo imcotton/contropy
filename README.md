@@ -4,7 +4,7 @@
 [![npm](https://badgen.net/npm/v/contropy)](https://www.npmjs.com/package/contropy)
 [![codecov](https://codecov.io/gh/imcotton/contropy/graph/badge.svg)](https://codecov.io/gh/imcotton/contropy)
 
-CONstant enTROPY
+> CONstant enTROPY
 
 
 
