@@ -188,6 +188,8 @@ export function mk_TrimmedNonEmptyString (
 
     }
 
+    return void 0;
+
 }
 
 
@@ -204,6 +206,8 @@ export function nmap <A, B> (
     if (a != null) {
         return f(a);
     }
+
+    return void 0;
 
 }
 
@@ -227,6 +231,8 @@ export function safe_int ({
         ) {
             return n;
         }
+
+        return void 0;
 
     };
 
