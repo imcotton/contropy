@@ -1,7 +1,8 @@
 import * as mod from '../index.ts';
+import * as mix from '../mix/index.ts';
 
 import {
-    nmap, safe_int, assert_TrimmedNonEmptyString,
+    nmap, safe_int, assert_TrimmedNonEmptyString, encode_hex,
 } from '../utils.ts';
 
 
@@ -9,8 +10,8 @@ import {
 
 
 type  Commands = typeof commands[number];
-const commands = [ 'pi', 'btc', 'crate', 'jsr', 'npm', 'cnpm', 'drand' ] as const;
-const            [  PI ,  BTC ,  CRATE ,  JSR ,  NPM ,  CNPM ,  DRAND  ] = commands;
+const commands = [ 'pi', 'btc', 'crate', 'jsr', 'npm', 'cnpm', 'drand', 'mix' ] as const;
+const            [  PI ,  BTC ,  CRATE ,  JSR ,  NPM ,  CNPM ,  DRAND ,  MIX  ] = commands;
 
 
 
@@ -91,6 +92,21 @@ export async function main (
 
         }
 
+        if (cmd === MIX) {
+
+            if (fst === 'vol01') {
+
+                const pi = nmap(parse_int_or_throw_c('invalid pi'), trd);
+                const res = await mix.vol01(snd, pi).then(encode_hex);
+
+                return print(res);
+
+            }
+
+            throw new Error('unknown vol.', { cause: fst });
+
+        }
+
     }
 
     throw new Error('unknown cmd', { cause: cmd });
@@ -127,6 +143,9 @@ contropy
 
     drand <network> [round]        { random, sign, prev? }
            network: default | quicknet
+
+      mix <tape>
+           tape: vol01 <digit> [pi=1024]
 
 `;
 
