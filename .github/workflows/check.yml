@@ -38,3 +38,9 @@ jobs:
           deno coverage --include=src --lcov --output=coverage/cov.lcov
           deno coverage --include=src
 
+      - name: Run codecov
+        uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5.4.3
+        with:
+          files: coverage/cov.lcov
+          use_oidc: true
+
