@@ -3,9 +3,25 @@ import c from './common.ts';
 import {
 
     assert_TrimmedNonEmptyString,
+    mk_TrimmedNonEmptyString,
     safe_int,
 
 } from '../src/utils.ts';
+
+
+
+
+
+c.describe('mk_TrimmedNonEmptyString', function () {
+
+    const num = 42;
+    const fn = mk_TrimmedNonEmptyString;
+
+    c.it('return undefined on number', function () {
+        c.ast.assertStrictEquals(fn(num), undefined);
+    });
+
+});
 
 
 
