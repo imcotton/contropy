@@ -46,7 +46,7 @@ jobs:
       - name: Build
         run: npx tsc ./src/*.*s ./src/cli/*.*s
                 --outDir ./dist
-                --target es2022
+                --target es2023
                 --module es2022
                 --moduleResolution bundler
                 --strict
