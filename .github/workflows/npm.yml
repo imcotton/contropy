@@ -44,7 +44,7 @@ jobs:
           npm install --no-{fund,package-lock,save} typescript@5.9.2 esbuild@0.25.8
 
       - name: Build
-        run: npx tsc ./src/*.*s ./src/cli/*.*s
+        run: npx tsc $(ls ./src/**/*.*s)
                 --outDir ./dist
                 --target es2023
                 --module es2022
