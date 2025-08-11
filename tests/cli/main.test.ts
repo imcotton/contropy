@@ -253,3 +253,56 @@ c.test_on_ci('cli > drand', async function (t) {
 
 });
 
+
+
+
+
+c.describe('cli > mix', function () {
+
+    const mix = 'mix';
+
+    c.describe('tape vol.01', function () {
+
+        const tape = 'vol01';
+
+        const spec = [
+
+            [ '01189998819991197253', '65535' ],
+            [ 'correct horse battery staple' ],
+
+        ] satisfies Array<[ string, string? ]>;
+
+        for (const [ pepper, pi ] of spec) {
+
+            const title = pi ? `${ pepper } - ${ pi }`
+                             : `${ pepper }`
+            ;
+
+            const args = pi ? [ mix, tape, pepper, pi ]
+                            : [ mix, tape, pepper     ]
+            ;
+
+            c.it_on_ci_and(title, async function (t) {
+
+                const res = await main_async(args);
+
+                await c.assertSnapshot(t, res);
+
+            });
+
+        }
+
+        c.it('throw on unknown vol.', async function () {
+
+            await c.ast.assertRejects(
+                () => main_async([ mix, 'vol.wat', '42' ]),
+                Error,
+                'unknown vol.',
+            );
+
+        });
+
+    });
+
+});
+
