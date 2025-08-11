@@ -2,6 +2,7 @@
 
 [![jsr](https://jsr.io/badges/@imcotton/contropy)](https://jsr.io/@imcotton/contropy)
 [![npm](https://badgen.net/npm/v/contropy)](https://www.npmjs.com/package/contropy)
+[![codecov](https://codecov.io/gh/imcotton/contropy/graph/badge.svg)](https://codecov.io/gh/imcotton/contropy)
 
 CONstant enTROPY
 
