@@ -13,6 +13,8 @@ export const { crypto: webcrypto } = globalThis;
 
 export const sha256 = shasum('SHA-256');
 
+export const sha512 = shasum('SHA-512');
+
 export function shasum (algo: `SHA-${ '256' | '384' | '512' }`) {
 
     return function (data: BufferSource) {
