@@ -111,6 +111,18 @@ export function decode_hex (data: string): Uint8Array<ArrayBuffer> {
 
 
 
+export function buf_to_bigint (source: Uint8Array | ArrayBuffer) {
+
+    const hex = encode_hex(source);
+
+    return BigInt('0x'.concat(hex));
+
+}
+
+
+
+
+
 export async function json (task: Promise<Response>): Promise<object> {
 
     const res = await task;
