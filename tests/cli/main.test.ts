@@ -257,35 +257,42 @@ c.test_on_ci('cli > drand', async function (t) {
 
 
 
-c.test_on_ci('cli > mix tape', async function (t) {
+c.describe('cli > mix', function () {
 
-    await t.step('vol01. 01189998819991197253 65535', async function () {
+    const mix = 'mix';
 
-        const mix   = 'mix';
-        const tape  = 'vol01';
-        const digit = '01189998819991197253';
-        const pi    = '65535';
-        const hash  = '0a9f10f4aadbf2ecb4dd2e6842ea456a020b00aa6acba8cbd3b5468de1a24b04d76fd53ae9655d11f107e366ca04840bd02be1edddf085b74acc58b152218c93';
+    c.describe('tape vol.01', function () {
 
-        const [ res ] = await Promise.all([
+        const tape = 'vol01';
 
-            main_async([ mix, tape, digit, pi ]),
+        const spec = [
 
-            c.ast.assertRejects(
-                () => main_async([ mix, tape, 'wat' ]),
-                Error,
-                'invalid digit',
-            ),
+            [ '01189998819991197253', '65535' ],
+            [ 'correct horse battery staple', '7355608' ],
 
-            c.ast.assertRejects(
-                () => main_async([ mix, 'vol.wat', digit ]),
+        ] satisfies Array<[ string, string ]>;
+
+        for (const [ pepper, pi ] of spec) {
+
+            c.it_on_ci_and(`${ pepper } - ${ pi }`, async function (t) {
+
+                const res = await main_async([ mix, tape, pepper, pi ]);
+
+                await c.assertSnapshot(t, res);
+
+            });
+
+        }
+
+        c.it('throw on unknown vol.', async function () {
+
+            await c.ast.assertRejects(
+                () => main_async([ mix, 'vol.wat', '42' ]),
                 Error,
                 'unknown vol.',
-            ),
+            );
 
-        ]);
-
-        c.ast.assertStrictEquals(res, hash);
+        });
 
     });
 

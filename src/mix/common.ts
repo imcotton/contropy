@@ -16,15 +16,25 @@ function _0x (hex: string) {
 
 
 
-export function grind (pepper: string) {
+export function mul (seed: bigint) {
 
-    if (/^[0-9]+$/.test(pepper) !== true) {
-        throw new Error('invalid digit', { cause: pepper });
-    }
+    return function (hex: string) {
 
-    const mirror = Array.from(pepper).toReversed().join('');
+        const res = BigInt(_0x(hex)) * seed;
 
-    return BigInt(mirror) ** BigInt(2);
+        return res.toString(16);
+
+    };
+
+}
+
+
+
+
+
+export function reverse (str: string) {
+
+    return join(Array.from(str).toReversed());
 
 }
 
@@ -73,19 +83,17 @@ export function drand ({ network, tip }: {
 
 
 
-export function npm (pkg: string, ver: string) {
+export async function npm (
 
-    return async function (seed: bigint, task = () => mod.npm(pkg, ver)) {
+        pkg: string,
+        ver: string,
+        task = () => mod.npm(pkg, ver),
 
-        const { shasum, sha512 } = await task();
+) {
 
-        const hex = BigInt(_0x(sha512 ?? shasum));
+    const { sha512, shasum } = await task();
 
-        const res = seed % hex;
-
-        return res.toString(16);
-
-    };
+    return sha512 ?? shasum;
 
 }
 
@@ -93,19 +101,11 @@ export function npm (pkg: string, ver: string) {
 
 
 
-export function jsr (pkg: string, ver: string) {
+export async function jsr (pkg: string, ver: string) {
 
-    return async function (seed: bigint) {
+    const integrity = await mod.jsr(pkg, ver);
 
-        const integrity = await mod.jsr(pkg, ver);
-
-        const hex = BigInt(_0x(integrity));
-
-        const res = seed % hex;
-
-        return res.toString(16);
-
-    };
+    return integrity;
 
 }
 
@@ -113,19 +113,11 @@ export function jsr (pkg: string, ver: string) {
 
 
 
-export function crate (pkg: string, ver: string) {
+export async function crate (pkg: string, ver: string) {
 
-    return async function (seed: bigint) {
+    const { checksum } = await mod.crate(pkg, ver);
 
-        const { checksum } = await mod.crate(pkg, ver);
-
-        const hex = BigInt(_0x(checksum));
-
-        const res = seed % hex;
-
-        return res.toString(16);
-
-    };
+    return checksum;
 
 }
 
@@ -143,11 +135,13 @@ export function traverse <A, B> (xs: ReadonlyArray<(a: A) => B>) {
 
 
 
-export function join (x = '') {
+export const join = join_by('');
 
-    return function (xs: ReadonlyArray<string>) {
+export function join_by (by: string) {
 
-        return xs.reduce((a, b) => a.concat(b), x);
+    return function (xs: Iterable<string>) {
+
+        return Array.from(xs).join(by);
 
     };
 

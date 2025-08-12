@@ -2,8 +2,8 @@ import { pi } from '../pi.js';
 
 import {
 
-    grind, traverse, sort_by_slice, join, hex_truncate,
-    sha512, decode_hex,
+    reverse, traverse, sort_by_slice, join, hex_truncate, mul,
+    sha512, decode_hex, hmac, buf_to_bigint,
     btc, drand, jsr, npm, crate,
 
 } from './common.ts';
@@ -14,14 +14,19 @@ import {
 
 export async function vol01 (pepper: string, n = 1024): Promise<ArrayBuffer> {
 
-    const seed = grind(pepper) * pi(n);
+    const grind = hmac('SHA-512', pi(n).toString(16));
+
+    const seed = await grind(reverse(pepper)).then(buf_to_bigint);
 
     const plant = traverse([
 
-        btc({ tip: 909_590 }),
+        btc({ tip: 909_694 }),
+        drand({ network: 'default',  tip:  5_319_100 }),
+        drand({ network: 'quicknet', tip: 20_733_559 }),
 
-        drand({ network: 'default',  tip:  5_316_827 }),
-        drand({ network: 'quicknet', tip: 20_710_829 }),
+    ]);
+
+    const queue = plant(seed).concat([
 
         crate(      'tokio', '1.8.4'),
         npm(   'typescript', '5.9.2'),
@@ -29,15 +34,14 @@ export async function vol01 (pepper: string, n = 1024): Promise<ArrayBuffer> {
 
     ]);
 
-    const shasum = await Promise.all(plant(seed))
+    return Promise.all(queue)
         .then(sort_by_slice(2, 4))
-        .then(join())
+        .then(join)
+        .then(mul(seed))
         .then(hex_truncate)
         .then(decode_hex)
         .then(sha512)
     ;
-
-    return shasum;
 
 }
 
