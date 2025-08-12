@@ -1,0 +1,5 @@
+export const snapshot = {};
+
+snapshot[`cli > mix > tape vol.01 > 01189998819991197253 - 65535 1`] = `"704ef53c8912756935c4eecb5f4ecbb93962311a0891f59b12af20e50f06f5eb40e4e47059a723aa3656c95b3d9d9667287a2acc3d1a9dbc2c82c0fa71ba80d2"`;
+
+snapshot[`cli > mix > tape vol.01 > correct horse battery staple - 7355608 1`] = `"46ffeadafb81dec48b293fe0f83d1ac16e8682e1a779b3dd4ddfd001063a1f964190577472dd5d4376010f72e1962ed767957bf8a9795569f8fc040be4da10c5"`;
