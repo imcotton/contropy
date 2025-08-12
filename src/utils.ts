@@ -215,6 +215,16 @@ export function nmap <A, B> (
 
 
 
+export function unwrap (line: string) {
+
+    return line.trim().replaceAll(/\W+/g, '');
+
+}
+
+
+
+
+
 export function safe_int ({
 
         min = Number.MIN_SAFE_INTEGER,
