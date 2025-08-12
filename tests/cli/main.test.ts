@@ -125,7 +125,10 @@ c.it_on_ci_and('cli > jsr', async function (t) {
         const cmd = 'jsr';
         const pkg = '@key/gen-ssh-ed25519';
         const ver = '0.8.0';
-        const hash = '5a987acc4a67454c046c32b98a2accb073c1dd85e2f1e6c0e6fb2b18a5b3eac7';
+        const hash = c.unwrap(`
+            5a987acc4a67454c046c32b98a2accb0
+            73c1dd85e2f1e6c0e6fb2b18a5b3eac7
+        `);
 
         const res = await main_async([ cmd, pkg, ver ]) ;
 
@@ -181,7 +184,10 @@ c.test_on_ci('cli > crate', async function (t) {
         const cmd = 'crate';
         const pkg = 'hyper';
         const ver = '1.2.0';
-        const checksum = `186548d73ac615b32a73aafe38fb4f56c0d340e110e5a200bcadbaf2e199263a`;
+        const checksum = c.unwrap(`
+            186548d73ac615b32a73aafe38fb4f56
+            c0d340e110e5a200bcadbaf2e199263a
+        `);
 
         const [ json, value ] = await Promise.all([
 
@@ -216,7 +222,10 @@ c.test_on_ci('cli > drand', async function (t) {
         const cmd = 'drand';
         const network = 'quicknet';
         const round = '16240013';
-        const random = `b43c7985c814f21f939d0b5e73430c5d608e4c8dd782a35ae87fa382a4669aa1`;
+        const random = c.unwrap(`
+            b43c7985c814f21f939d0b5e73430c5d
+            608e4c8dd782a35ae87fa382a4669aa1
+        `);
 
         const [ latest, json, value ] = await Promise.all([
 
