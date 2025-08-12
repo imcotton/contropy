@@ -29,6 +29,37 @@ export function shasum (algo: `SHA-${ '256' | '384' | '512' }`) {
 
 
 
+const txt = new TextEncoder();
+
+export function hmac (
+
+        hash: `SHA-${ '256' | '384' | '512' }`,
+        key: string,
+
+) {
+
+    const name = 'HMAC';
+
+    return async function (data: string) {
+
+        const crypto_key = await webcrypto.subtle.importKey(
+            'raw',
+            txt.encode(key),
+            { name, hash },
+            false,
+            [ 'sign' ],
+        );
+
+        return webcrypto.subtle.sign(name, crypto_key, txt.encode(data));
+
+    };
+
+}
+
+
+
+
+
 export function encode_hex (data: Uint8Array | ArrayBuffer) {
 
     // @ts-ignore polyfill
