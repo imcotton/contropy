@@ -42,7 +42,7 @@
       "./src"
     ],
     "exclude": [
-      "./tests/__snapshots__/"
+      "./tests/**/__snapshots__/"
     ]
   },
   "lock": false,
