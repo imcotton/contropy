@@ -40,5 +40,31 @@ c.describe('npm', function () {
 
     }
 
+
+
+
+
+    c.it(`returns shasum only`, async function () {
+
+        const name = 'foobar';
+        const version = '0.0.0';
+        const shasum = '0xff00';
+
+        const json = JSON.stringify({
+            name,
+            version,
+            dist: { shasum },
+        });
+
+        const dummy = ReadableStream.from([ json ])
+            .pipeThrough(new TextEncoderStream())
+        ;
+
+        const res = await task(() => Promise.resolve(new Response(dummy)));
+
+        c.ast.assertEquals(res, { name, version, shasum });
+
+    });
+
 });
 
