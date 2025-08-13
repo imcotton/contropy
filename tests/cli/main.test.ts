@@ -33,6 +33,12 @@ c.describe('cli / main', function () {
 
         }
 
+        c.it(`optional args`, async function () {
+
+            c.ast.assertStrictEquals(await main(), void 0);
+
+        });
+
     });
 
 
