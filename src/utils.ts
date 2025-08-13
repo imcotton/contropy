@@ -111,11 +111,29 @@ export function decode_hex (data: string): Uint8Array<ArrayBuffer> {
 
 
 
+function _0x (hex: string) {
+
+    return '0x'.concat(hex);
+
+}
+
+
+
+
+
+export function hex_to_bigint (hex: string) {
+
+    return BigInt(_0x(hex));
+
+}
+
+
+
+
+
 export function buf_to_bigint (source: Uint8Array | ArrayBuffer) {
 
-    const hex = encode_hex(source);
-
-    return BigInt('0x'.concat(hex));
+    return hex_to_bigint(encode_hex(source));
 
 }
 
