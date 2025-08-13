@@ -5,10 +5,31 @@ import {
     assert_TrimmedNonEmptyString,
     mk_TrimmedNonEmptyString,
     safe_int,
+    http_get,
     text,
     json,
 
 } from '../src/utils.ts';
+
+
+
+
+
+c.describe('http_get', function () {
+
+    c.it('reject on abort', async function () {
+
+        const url = 'http://localhost';
+        const agent = 'test';
+        const msg = 'fail';
+        const signal = AbortSignal.abort(new Error(msg));
+        const task = () => http_get(url, agent, signal);
+
+        await c.ast.assertRejects(task, Error, msg);
+
+    });
+
+});
 
 
 
