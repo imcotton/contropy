@@ -215,6 +215,41 @@ c.test_on_ci('cli > crate', async function (t) {
 
 
 
+c.it_on_ci_and('cli > btc', async function (t) {
+
+    await t.step('return json or field individually', async function () {
+
+        const cmd = 'btc';
+        const height = '123456';
+        const root = c.unwrap(`
+            0e60651a9934e8f0decd1c5fde39309e
+            48fca0cd1c84a21ddfde95033762d86c
+        `);
+
+        const [ latest, json, value ] = await Promise.all([
+
+            main_async([ cmd                 ]),
+
+            main_async([ cmd, height,        ]),
+
+            main_async([ cmd, height, 'root' ]),
+
+        ]);
+
+        c.ast.assertStrictEquals(value, root);
+
+        c.ast.assertObjectMatch(JSON.parse(json), { root });
+
+        c.ast.assertExists(JSON.parse(latest)['root']);
+
+    });
+
+});
+
+
+
+
+
 c.test_on_ci('cli > drand', async function (t) {
 
     await t.step('return json or field individually', async function () {
