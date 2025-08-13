@@ -42,7 +42,11 @@ export function reverse (str: string) {
 
 
 
-export function btc ({ tip }: { tip: number }) {
+export function btc ({ tip }: {
+
+        tip: number,
+
+}) {
 
     return async function btc (seed: bigint) {
 
@@ -60,18 +64,18 @@ export function btc ({ tip }: { tip: number }) {
 
 
 
-export function drand ({ network, tip }: {
+export function drand ({ tip, network }: {
 
-        network: Parameters<typeof mod.drand>[0],
         tip: number,
+        network: Parameters<typeof mod.drand>[0],
 
 }) {
 
     return async function (seed: bigint) {
 
-        const height = Number(seed % BigInt(tip));
+        const round = Number(seed % BigInt(tip));
 
-        const { sign } = await mod.drand(network, height);
+        const { sign } = await mod.drand(network, round);
 
         return sign;
 
