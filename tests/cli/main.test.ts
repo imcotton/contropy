@@ -158,7 +158,7 @@ c.test_on_ci('cli > npm', async function (t) {
             main_async([ cmd, pkg, ver, 'shasum' ]),
 
             c.ast.assertRejects(
-                () => main_async([ cmd, pkg, ver, 'waaaaaat' ]),
+                () => main_async([ 'cnpm', pkg, ver, 'waaaaaat' ]),
                 Error,
                 'invalid key: waaaaaat',
             ),
