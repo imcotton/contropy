@@ -6,9 +6,13 @@ export * from '../utils.ts';
 
 
 
-function _0x (hex: string) {
+export function mul (a: bigint) {
 
-    return '0x'.concat(hex);
+    return function (b: bigint) {
+
+        return a * b;
+
+    };
 
 }
 
@@ -16,13 +20,11 @@ function _0x (hex: string) {
 
 
 
-export function mul (seed: bigint) {
+export function radix (base: number) {
 
-    return function (hex: string) {
+    return function (n: bigint) {
 
-        const res = BigInt(_0x(hex)) * seed;
-
-        return res.toString(16);
+        return n.toString(base);
 
     };
 

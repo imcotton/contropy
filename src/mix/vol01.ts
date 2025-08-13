@@ -2,8 +2,8 @@ import { pi } from '../pi.js';
 
 import {
 
-    reverse, traverse, sort_by_slice, join, truncate_hex, mul,
-    sha512, decode_hex, hmac, buf_to_bigint,
+    reverse, traverse, sort_by_slice, join, truncate_hex, mul, radix,
+    sha512, decode_hex, hmac, buf_to_bigint, hex_to_bigint,
     btc, drand, jsr, npm, crate,
 
 } from './common.ts';
@@ -37,7 +37,9 @@ export async function vol01 (pepper: string, n = 1024): Promise<ArrayBuffer> {
     return Promise.all(queue)
         .then(sort_by_slice(2, 4))
         .then(join)
+        .then(hex_to_bigint)
         .then(mul(seed))
+        .then(radix(16))
         .then(truncate_hex)
         .then(decode_hex)
         .then(sha512)
