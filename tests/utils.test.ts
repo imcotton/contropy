@@ -5,8 +5,42 @@ import {
     assert_TrimmedNonEmptyString,
     mk_TrimmedNonEmptyString,
     safe_int,
+    text,
+    json,
 
 } from '../src/utils.ts';
+
+
+
+
+
+c.describe('response utils', function () {
+
+    const statusText = 'not ok';
+
+    const dummy = () => Promise.resolve(new Response(new ReadableStream({
+        async pull () {
+            throw new Error();
+        },
+    }), { status: 400, statusText }));
+
+    c.describe('text', function () {
+
+        c.it('reject on not ok', async function () {
+            await c.ast.assertRejects(() => text(dummy()), Error, statusText);
+        });
+
+    });
+
+    c.describe('json', function () {
+
+        c.it('reject on not ok', async function () {
+            await c.ast.assertRejects(() => json(dummy()), Error, statusText);
+        });
+
+    });
+
+});
 
 
 
