@@ -50,7 +50,7 @@ export function btc ({ tip }: {
 
 }) {
 
-    return async function btc (seed: bigint) {
+    return async function (seed: bigint) {
 
         const height = Number(seed % BigInt(tip));
 
