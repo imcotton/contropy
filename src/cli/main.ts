@@ -145,7 +145,7 @@ contropy
            network: default | quicknet
 
       mix <tape>
-           tape: vol01 <digit> [pi=1024]
+           tape: vol01 <passphrase> [pi=1024]
 
 `;
 
