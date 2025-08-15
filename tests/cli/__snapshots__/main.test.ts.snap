@@ -3,3 +3,7 @@ export const snapshot = {};
 snapshot[`cli > mix > tape vol.01 > 01189998819991197253 - 65535 1`] = `"704ef53c8912756935c4eecb5f4ecbb93962311a0891f59b12af20e50f06f5eb40e4e47059a723aa3656c95b3d9d9667287a2acc3d1a9dbc2c82c0fa71ba80d2"`;
 
 snapshot[`cli > mix > tape vol.01 > correct horse battery staple 1`] = `"7a3ec07418101ca65dd396f7887e9bfd3e1313d24f242b1c0b882c7eb0b8d9e7b36dd8433b91ce32834eab6d1d276b5e1a96862ea69824edcd5477647d3b38a6"`;
+
+snapshot[`cli > mix > tape vol.02 > 01189998819991197253 - 65535 1`] = `"9d64d723ac89a95bbed41e36dc70432ca2af4cbf87a5e40ea4d6f45708dcb8f8ebb8fc80b784fa0402c3bdbe53769f73c83edf39adf6223c90004a58eef562f5"`;
+
+snapshot[`cli > mix > tape vol.02 > correct horse battery staple 1`] = `"b1192d6fa4428508f6d07fdff7ad21e183a6eaf4664b86755631e9e07f269e437db531fb4114d03f2198ff194f67e168f3a4d41f794659052e469f601bbcf359"`;
