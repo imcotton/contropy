@@ -302,46 +302,55 @@ c.describe('cli > mix', function () {
 
     const mix = 'mix';
 
-    c.describe('tape vol.01', function () {
+    const album = Array
+        .from({ length: 2 }, (_, i) => i + 1)
+        .map(i => i.toString().padStart(2, '0'))
+    ;
 
-        const tape = 'vol01';
+    for (const n of album) {
 
-        const spec = [
+        c.describe(`tape vol.${ n }`, function () {
 
-            [ '01189998819991197253', '65535' ],
-            [ 'correct horse battery staple' ],
+            const tape = `vol${ n }`;
 
-        ] satisfies Array<[ string, string? ]>;
+            const spec = [
 
-        for (const [ pepper, pi ] of spec) {
+                [ '01189998819991197253', '65535' ],
+                [ 'correct horse battery staple' ],
 
-            const title = pi ? `${ pepper } - ${ pi }`
-                             : `${ pepper }`
-            ;
+            ] satisfies Array<[ string, string? ]>;
 
-            const args = pi ? [ mix, tape, pepper, pi ]
-                            : [ mix, tape, pepper     ]
-            ;
+            for (const [ pepper, pi ] of spec) {
 
-            c.it_on_ci_and(title, async function (t) {
+                const title = pi ? `${ pepper } - ${ pi }`
+                                : `${ pepper }`
+                ;
 
-                const res = await main_async(args);
+                const args = pi ? [ mix, tape, pepper, pi ]
+                                : [ mix, tape, pepper     ]
+                ;
 
-                await c.assertSnapshot(t, res);
+                c.it_on_ci_and(title, async function (t) {
 
-            });
+                    const res = await main_async(args);
 
-        }
+                    await c.assertSnapshot(t, res);
 
-        c.it('throw on unknown vol.', async function () {
+                });
 
-            await c.ast.assertRejects(
-                () => main_async([ mix, 'vol.wat', '42' ]),
-                Error,
-                'unknown vol.',
-            );
+            }
 
         });
+
+    }
+
+    c.it('throw on unknown vol.', async function () {
+
+        await c.ast.assertRejects(
+            () => main_async([ mix, 'vol.wat', '42' ]),
+            Error,
+            'unknown vol.',
+        );
 
     });
 
