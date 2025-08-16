@@ -94,10 +94,17 @@ export async function main (
 
         if (cmd === MIX) {
 
-            if (fst === 'vol01') {
+            const album = new Map([
+                [ 'vol01', mix.vol01 ],
+                [ 'vol02', mix.vol02 ],
+            ]);
+
+            const tape = album.get(fst);
+
+            if (tape != null) {
 
                 const pi = nmap(parse_int_or_throw_c('invalid pi'), trd);
-                const res = await mix.vol01(snd, pi).then(encode_hex);
+                const res = await tape(snd, pi).then(encode_hex);
 
                 return print(res);
 
@@ -146,6 +153,7 @@ contropy
 
       mix <tape>
            tape: vol01 <passphrase> [pi=1024]
+           tape: vol02 <passphrase> [pi=2048]
 
 `;
 
