@@ -1,6 +1,6 @@
 import c, { agent } from './common.ts';
 
-import { drand_task as task, gen } from '../src/drand.ts';
+import { drand_task as task, gen } from '#src/drand.ts';
 
 
 

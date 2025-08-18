@@ -6,7 +6,7 @@ import {
     main_async,
     main,
 
-} from '../../src/cli/main.ts';
+} from '#src/cli/main.ts';
 
 
 

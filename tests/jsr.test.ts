@@ -1,6 +1,6 @@
 import c, { agent } from './common.ts';
 
-import { jsr_task as task, gen } from '../src/jsr.ts';
+import { jsr_task as task, gen } from '#src/jsr.ts';
 
 
 

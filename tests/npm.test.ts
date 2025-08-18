@@ -1,6 +1,6 @@
 import c, { agent } from './common.ts';
 
-import { npm_task as task, gen } from '../src/npm.ts';
+import { npm_task as task, gen } from '#src/npm.ts';
 
 
 
