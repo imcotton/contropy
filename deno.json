@@ -5,6 +5,7 @@
   "description": "CONstant enTROPY",
   "license": "MIT",
   "imports": {
+    "#src/": "./src/",
     "@std/assert":     "jsr:@std/assert@1",
     "@std/encoding": "jsr:@std/encoding@1",
     "@std/fs":             "jsr:@std/fs@1",
