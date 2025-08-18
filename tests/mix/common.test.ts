@@ -4,7 +4,7 @@ import {
 
     npm
 
-} from '../../src/mix/common.ts';
+} from '#src/mix/common.ts';
 
 
 

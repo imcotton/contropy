@@ -1,6 +1,6 @@
 import c, { agent } from './common.ts';
 
-import { crate_task as task, gen } from '../src/crate.ts';
+import { crate_task as task, gen } from '#src/crate.ts';
 
 
 

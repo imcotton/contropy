@@ -1,6 +1,6 @@
 import c from './common.ts';
 
-import { pi } from '../src/pi.js';
+import { pi } from '#src/pi.js';
 
 
 

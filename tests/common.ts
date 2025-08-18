@@ -5,8 +5,8 @@ export * as ast from '@std/assert';
 
 export { assertSnapshot } from '@std/testing/snapshot';
 
-import * as u from '../src/utils.ts';
-export * from '../src/utils.ts';
+import * as u from '#src/utils.ts';
+export * from '#src/utils.ts';
 
 
 

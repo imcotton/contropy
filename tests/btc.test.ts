@@ -1,6 +1,6 @@
 import c, { agent } from './common.ts';
 
-import { btc_task as task, gen } from '../src/btc.ts';
+import { btc_task as task, gen } from '#src/btc.ts';
 
 
 

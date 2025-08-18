@@ -9,7 +9,7 @@ import {
     text,
     json,
 
-} from '../src/utils.ts';
+} from '#src/utils.ts';
 
 
 
