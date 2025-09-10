@@ -155,6 +155,7 @@ contropy
       mix <tape>
            tape: vol01 <passphrase> [pi=1024]
            tape: vol02 <passphrase> [pi=2048]
+           tape: vol03 <passphrase> [pi=4096]
 
 `;
 
