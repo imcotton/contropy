@@ -97,6 +97,7 @@ export async function main (
             const album = new Map([
                 [ 'vol01', mix.vol01 ],
                 [ 'vol02', mix.vol02 ],
+                [ 'vol03', mix.vol03 ],
             ]);
 
             const tape = album.get(fst);
