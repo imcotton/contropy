@@ -303,7 +303,7 @@ c.describe('cli > mix', function () {
     const mix = 'mix';
 
     const album = Array
-        .from({ length: 2 }, (_, i) => i + 1)
+        .from({ length: 3 }, (_, i) => i + 1)
         .map(i => i.toString().padStart(2, '0'))
     ;
 
