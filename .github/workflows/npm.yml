@@ -38,16 +38,13 @@ jobs:
           cat tmp-package.json | sed "s/0.0.0-VERSION/$VER/" > package.json
 
       - name: Install
-        run: |-
-
-          npm install --no-{fund,package-lock}
-          npm install --no-{fund,package-lock,save} typescript@5.9.2 esbuild@0.25.8
+        run: npm install --no-{fund,package-lock}
 
       - name: Build
-        run: npx tsc
+        run: npx --yes --package=typescript@6.0.2 tsc
 
       - name: Bundle
-        run: npx esbuild  ./dist/utils.js
+        run: npx --yes esbuild@0.28.0 ./dist/utils.js
                 --outfile=./dist/utils.js
                 --format=esm
                 --allow-overwrite
