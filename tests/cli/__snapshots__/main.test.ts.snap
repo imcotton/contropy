@@ -11,3 +11,7 @@ snapshot[`cli > mix > tape vol.02 > correct horse battery staple 1`] = `"b1192d6
 snapshot[`cli > mix > tape vol.03 > 01189998819991197253 - 65535 1`] = `"1884c235bd83bbb3b55896281f2292ec37611161d75474776661dc28517798d9190e08bb910a23b08484209fe9a89a0a28d1f71a86cdac51946c8704205aefda"`;
 
 snapshot[`cli > mix > tape vol.03 > correct horse battery staple 1`] = `"49908ed5179b5a0c548dfabf45dc08737fdf2ceea91a522eeb51d51aa19886175070d2c9ce57d0760e12b606d241888f841db69cf8670689f01755322c1aa19a"`;
+
+snapshot[`cli > mix > tape vol.04 > 01189998819991197253 - 65535 1`] = `"4ff39943dbe9fad44926f724013d78af86c52990a801ebfbb57f27cb9bc1c2c6c44939a92b9b276fac4c5a4428dc8a21528d25a3e9c3af3e38a984c3a5981ab6"`;
+
+snapshot[`cli > mix > tape vol.04 > correct horse battery staple 1`] = `"431402fcee132671f51d8caf57322b626d1b42d0c4bbececfd398447ed944547f83524bfa3760f78ce46aad32124a5c68548128fbc6d47d970e467eeee512669"`;
