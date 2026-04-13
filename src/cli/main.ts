@@ -98,6 +98,7 @@ export async function main (
                 [ 'vol01', mix.vol01 ],
                 [ 'vol02', mix.vol02 ],
                 [ 'vol03', mix.vol03 ],
+                [ 'vol04', mix.vol04 ],
             ]);
 
             const tape = album.get(fst);
@@ -156,6 +157,7 @@ contropy
            tape: vol01 <passphrase> [pi=1024]
            tape: vol02 <passphrase> [pi=2048]
            tape: vol03 <passphrase> [pi=4096]
+           tape: vol04 <passphrase> [pi=8192]
 
 `;
 
