@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.esm.sh/gh/denoland/deno@v2.4.2/cli/schemas/config-file.v1.json",
+  "$schema": "https://raw.esm.sh/gh/denoland/deno@v2.7.12/cli/schemas/config-file.v1.json",
   "name": "@imcotton/contropy",
   "version": "0.12.1",
   "description": "CONstant enTROPY",
